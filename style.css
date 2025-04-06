@@ -1,0 +1,147 @@
+body {
+    font-family: 'Roboto', sans-serif; /* More modern font */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #000820, #000210); /* More subtle gradient background */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-container {
+    text-align: center; /* Center text within the container */
+    padding-top: 2rem;
+}
+
+.title-container h1 {
+    font-size: 5rem; /* Huge title text */
+    font-family: 'Product Sans', sans-serif; /* Apply Product Sans font */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+}
+
+
+main {
+    display: flex;
+    justify-content: center;
+    gap: 3rem; /* Increased gap between game cards */
+    padding: 3rem; /* Increased padding around main content */
+    flex-wrap: wrap;
+}
+
+.game-card {
+    background-color: rgba(0, 136, 204, 0.3); /* Glassmorphism background color */
+    backdrop-filter: blur(10px); /* Glassmorphism blur effect */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2); /* Slightly stronger shadow */
+    padding: 2rem 2rem 1rem;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    width: 300px;
+    border: 1px solid rgba(0, 153, 230, 0.5); /* Subtle border */
+}
+
+.game-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.game-card h2 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.game-card p {
+    margin-bottom: 1.5rem;
+    color: white; /* Changed to white */
+    font-family: 'Product Sans', sans-serif; /* Apply Product Sans font */
+}
+
+.play-button {
+    display: inline-block;
+    padding: 1.2rem 2.5rem; /* Further increased padding */
+    background-color: #66e0f2; /* More vibrant cyan play button */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px; /* Even more rounded corners */
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transitions */
+    font-size: 1.2rem; /* Slightly larger font size */
+    letter-spacing: 0.05rem; /* Slight letter spacing for modern look */
+    font-family: 'Product Sans', sans-serif; /* Apply Product Sans font */
+}
+
+.play-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Scale up on hover for interactivity */
+}
+
+footer {
+    text-align: center;
+
+/* Style adjustments for title and fade-in animation */
+
+/* Initially hide game cards */
+.game-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Fade-in animation when in view */
+.game-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#scroll-arrow-container {
+    /* position: absolute; */ /* Removed absolute positioning */
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* background-color: red; */ /* Removed red background */
+    margin-top: 20px; /* Add margin to push it below the title */
+}
+
+#scroll-arrow {
+    color: white; /* white color for arrow text */
+    font-size: 3rem; /* Make arrow larger */
+    text-decoration: none;
+    padding: 20px; /* Increase padding */
+    background-color: lightgray; /* Light gray background for arrow */
+    border-radius: 0%; /* Remove border radius */
+    border: none; /* Remove border */
+    transition: none; /* Remove transition */
+}
+
+#scroll-arrow:hover {
+    background-color: gray; /* Darker gray on hover */
+}
+
+
+
+
+    padding: 1rem 0;
+    margin-top: 2rem;
+    color: #ffffff; /* White footer text */
+}
+
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .game-card {
+        width: 90%;
+    }
+}

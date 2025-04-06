@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gambling Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> <!-- Body class 'debug-active' added/removed by JS -->
+
+    <!-- Scrolling Emoji Background -->
+    <div id="scrolling-bg">
+        <div id="scrolling-bg-content">
+            <!-- Emojis populated by JS -->
+        </div>
+    </div>
+    <!-- End Scrolling Background -->
+
+    <!-- ID: game-container -->
+    <div id="game-container">
+        <h1>Gambling Simulator</h1>
+
+        <!-- ID: slot-machine -->
+        <div id="slot-machine">
+            <div class="reels">
+
+                <!-- !!!!! ENSURE THESE IDs ARE EXACTLY AS SHOWN !!!!! -->
+                <div class="reel" id="reel1">
+                    <div class="reel-inner"></div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="reel-inner"></div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="reel-inner"></div>
+                </div>
+                <!-- !!!!! END REEL IDs !!!!! -->
+
+            </div>
+        </div>
+
+        <!-- ID: controls -->
+        <div id="controls">
+             <!-- ID: spin-button -->
+            <button id="spin-button">Spin! ($10)</button>
+        </div>
+
+        <!-- ID: info-display -->
+        <div id="info-display">
+             <!-- ID: money-display -->
+            <div id="money-display">Money: <span>$100</span></div>
+             <!-- ID: message-display -->
+            <div id="message-display">Good luck!</div>
+        </div>
+
+        <!-- ID: confetti-container -->
+        <div id="confetti-container"></div>
+    </div>
+
+    <!-- ID: flash-overlay -->
+    <div id="flash-overlay"></div>
+
+    <!-- ID: debug-console -->
+    <div id="debug-console">
+        <label for="debug-code">DEBUG MODE | Enter Code:</label>
+        <!-- ID: debug-code-display -->
+        <span id="debug-code-display"></span>
+        <!-- ID: debug-feedback -->
+        <div id="debug-feedback"></div>
+    </div>
+
+    <!-- Script at the end -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+/* 1. Basic Reset & Page Setup */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; font-family: 'Arial', sans-serif; overflow: hidden; }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    --scroll-bg-color-inactive: #5a5a5a; /* Grey */
+    background-color: #333;
+}
+
+/* 2. Scrolling Background Styles (Unchanged) */
+#scrolling-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    background-color: var(--scroll-bg-color-inactive);
+}
+#scrolling-bg-content {
+    position: absolute;
+    width: var(--bg-content-size, 6000px);
+    height: var(--bg-content-size, 6000px);
+    left: 0;
+    top: 0;
+    animation: scrollDiagonalPixels var(--bg-animation-duration, 500s) linear infinite;
+    will-change: transform;
+}
+.bg-emoji {
+    position: absolute;
+    font-size: 30px;
+    opacity: 0.25;
+    color: #ccc;
+    user-select: none;
+    transform: rotate(-45deg);
+}
+@keyframes scrollDiagonalPixels {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(var(--bg-animation-distance, -3000px), var(--bg-animation-distance, -3000px)); }
+}
+
+/* 3. Game Container (Unchanged) */
+#game-container { background-color: #2a2a2a; color: #e0e0e0; padding: 30px; border-radius: 15px; border: 5px solid #b8860b; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6); text-align: center; position: relative; z-index: 1; min-width: 500px; /* Ensure enough space */ }
+
+/* 4. Title (Unchanged) */
+h1 { color: #f5f5f5; margin-bottom: 15px; /* Reduced margin */ font-size: 2em; }
+
+/* --- NEW Score Display Styles --- */
+#score-display {
+    display: flex;
+    justify-content: space-evenly; /* Even space */
+    align-items: center;
+    background-color: #3a3a3a;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px; /* Space below score */
+    border: 2px solid #555;
+}
+.score-item {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #e0e0e0;
+}
+.score-item span { /* Style the actual number */
+    display: inline-block;
+    min-width: 25px; /* Ensure space for numbers */
+    text-align: center;
+    color: #f0c400; /* Gold color for score */
+}
+/* --- END Score Display Styles --- */
+
+
+/* 5. RPS Display Area (Reduced margin) */
+#rps-display {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 25px; /* Reduced margin */
+    background-color: #333333;
+    border: 3px solid #555555;
+    border-radius: 10px;
+    padding: 20px;
+}
+.choice-display { text-align: center; }
+.choice-display h2 { font-size: 1.1em; color: #ccc; margin-bottom: 10px; }
+.emoji-placeholder {
+    width: 100px;
+    height: 100px;
+    background-color: #444444;
+    border: 2px solid #666666;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    color: #FFFFFF;
+    transition: transform 0.2s ease-out;
+}
+.vs-text { font-size: 2em; font-weight: bold; color: #b8860b; margin: 0 20px; }
+.emoji-placeholder.reveal { transform: scale(1.1); }
+
+
+/* 6. Controls (Unchanged) */
+#controls {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+#controls p { font-size: 1em; color: #bbb; margin-bottom: 5px; }
+.choice-button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #191970; /* Dark Navy */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    min-width: 150px;
+}
+.choice-button:hover { background-color: #2c2c8a; }
+.choice-button:active { transform: scale(0.97); }
+.choice-button:disabled {
+    background-color: #5a5a5a;
+    color: #aaaaaa;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* 7. Info Display, Confetti */
+#info-display { margin-top: 20px; font-size: 1.1em; }
+#message-display { min-height: 1.5em; color: #bbbbbb; font-style: italic; margin-bottom: 5px;} /* Added margin */
+
+/* --- NEW Winner Message Styles --- */
+#winner-message {
+    min-height: 1.5em; /* Match message display */
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #ffd700; /* Gold color for winner */
+    margin-top: 10px;
+}
+/* --- END Winner Message Styles --- */
+
+#confetti-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index: 1000; }
+.confetti { position: absolute; width: 10px; height: 10px; background-color: red; opacity: 0.9; border-radius: 2px; animation: fall 3s linear forwards; will-change: transform, opacity; }
+@keyframes fall { 0% { transform: translateY(-10vh) rotateZ(0deg); opacity: 0.9; } 100% { transform: translateY(110vh) rotateZ(720deg); opacity: 0; } }

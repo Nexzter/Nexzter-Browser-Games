@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Battle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Scrolling Emoji Background -->
+    <div id="scrolling-bg">
+        <div id="scrolling-bg-content">
+            <!-- Emojis populated by JS -->
+        </div>
+    </div>
+    <!-- End Scrolling Background -->
+
+    <!-- ID: game-container -->
+    <div id="game-container">
+        <h1>Rock Paper Scissors</h1>
+
+        <!-- Score Display Area -->
+        <div id="score-display">
+            <span class="score-item">Player: <span id="player-score">0</span></span>
+            <span class="score-item">CPU: <span id="cpu-score">0</span></span>
+        </div>
+        <!-- END Score Display Area -->
+
+        <!-- ID: rps-display -->
+        <div id="rps-display">
+            <div class="choice-display player">
+                <h2>You</h2>
+                <div class="emoji-placeholder" id="player-choice-display">❓</div>
+            </div>
+            <div class="vs-text">VS</div>
+            <div class="choice-display computer">
+                <h2>CPU</h2>
+                <div class="emoji-placeholder" id="computer-choice-display">❓</div>
+            </div>
+        </div>
+        <!-- END rps-display -->
+
+        <!-- ID: controls -->
+        <div id="controls">
+            <p>Choose your weapon! (First to 3 wins)</p> <!-- Updated text -->
+             <!-- ID: rock-button, paper-button, scissors-button -->
+            <button id="rock-button" class="choice-button">✊ Rock</button>
+            <button id="paper-button" class="choice-button">✋ Paper</button>
+            <button id="scissors-button" class="choice-button">✌️ Scissors</button>
+        </div>
+        <!-- END controls -->
+
+        <!-- ID: info-display -->
+        <div id="info-display">
+             <!-- ID: message-display -->
+            <div id="message-display">Make your choice!</div>
+             <!-- ID: winner-message -->
+             <div id="winner-message"></div> <!-- For overall winner -->
+        </div>
+
+        <!-- ID: confetti-container (Remains the same) -->
+        <div id="confetti-container"></div>
+    </div>
+
+    <!-- Script at the end -->
+    <script src="script.js"></script>
+</body>
+</html>
